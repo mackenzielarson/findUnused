@@ -16,9 +16,14 @@ echo "Files not referenced in directory."
 echo ' '
 #finds all files with name.jpg .png and .gif puts into temporary file  "patterns"
 #basename removes suffixes
-find . -name *.jpg -exec basename {} \; > /tmp/patterns     
-find . -name *.png -exec basename {} \; >> /tmp/patterns
-find . -name *.gif -exec basename {} \; >> /tmp/patterns
+imagelist=$(find . jpg);
+echo $imagelist;
+echo "===="
+for image in $imagelist; do
+    echo "my image $image"
+done;
+# find . -name *.png -exec basename {} \; >> /tmp/patterns
+# find . -name *.gif -exec basename {} \; >> /tmp/patterns
 
 # Print a list of files that DO NOT exist.
 # The variable 'p' is a representation of /tmp/patterns.
